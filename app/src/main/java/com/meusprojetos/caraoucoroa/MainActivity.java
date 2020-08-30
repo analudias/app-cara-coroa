@@ -27,6 +27,12 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(getApplicationContext(), SegundaActivity.class);
 
+                //passando o número aleatório para a próxima activity
+                Random random = new Random();
+                int numero = random.nextInt(2);
+
+                intent.putExtra("numero", numero);
+
                 startActivity(intent);
             }
         });

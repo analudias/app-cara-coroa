@@ -23,19 +23,12 @@ public class SegundaActivity extends AppCompatActivity {
         imageMoeda = findViewById(R.id.imageMoeda);
         buttonVoltar = findViewById(R.id.buttonVoltar);
 
-
-        //gerando um número aleatório de 0 a 1
-        Random random = new Random();
-        int numero = random.nextInt(2);
-
-        //criando um vetor de 2 posições
-        int[] opcoes = {0,1};
-
-        //fazendo uma varíavel receber um número que foi gerado aleatóriamente
-        int escolhaApp = opcoes[numero];
+        //recuperando o número aleatório que foi gerado no MainActivity
+        Bundle dados = getIntent().getExtras();
+        int numero = dados.getInt("numero");
 
         //definindo qual imagem será exibida de acordo com o número que foi gerado
-        if(escolhaApp == 0) {
+        if(numero == 0) {
             imageMoeda.setImageResource(R.drawable.moeda_cara);
         }
         else{
@@ -46,7 +39,7 @@ public class SegundaActivity extends AppCompatActivity {
         buttonVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle dados = getIntent().getExtras();
+
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
 
                 startActivity(intent);
